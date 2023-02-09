@@ -1,0 +1,49 @@
+python train.py\
+    --dataset sourcefolder\
+    --output open-unmix-512\
+    --root data\
+    --target-dir podcasts\
+    --interferer-dirs interferer\
+    --ext .wav\
+    --nb-train-samples 1800\
+    --nb-valid-samples 100
+
+Using GPU: True
+100%|███████████████████████████████████████████████████| 2/2 [00:06<00:00,  3.41s/it]
+100%|███████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.18it/s]
+Compute dataset statistics: 100%|█████████████████| 1800/1800 [00:28<00:00, 63.94it/s]
+  0%|                                                         | 0/113 [00:00<?, ?it/s] 
+Training epoch:   0%|                                         | 0/100 [00:00<?, ?it/s] 
+Traceback (most recent call last):
+  File "D:\InterferenceSeperation\umx_demo\scripts\train.py", line 372, in <module>    
+    main()
+  File "D:\InterferenceSeperation\umx_demo\scripts\train.py", line 319, in main        
+    train_loss = train(args, unmix, encoder, device, train_sampler, optimizer)
+  File "D:\InterferenceSeperation\umx_demo\scripts\train.py", line 27, in train        
+    for x, y in pbar:
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\site-packages\tqdm\std.py", line 1180, in __iter__
+    for obj in iterable:
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\site-packages\torch\utils\data\dataloader.py", line 359, in __iter__
+    return self._get_iterator()
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\site-packages\torch\utils\data\dataloader.py", line 305, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\site-packages\torch\utils\data\dataloader.py", line 918, in __init__
+    w.start()
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\multiprocessing\process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\multiprocessing\context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\multiprocessing\context.py", line 327, in _Popen
+    return Popen(process_obj)
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\multiprocessing\popen_spawn_win32.py", line 93, in __init__
+    reduction.dump(process_obj, to_child)
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\multiprocessing\reduction.py", line 60, in dump
+    ForkingPickler(file, protocol).dump(obj)
+AttributeError: Can't pickle local object 'aug_from_str.<locals>.<lambda>'
+PS D:\InterferenceSeperation\umx_demo\scripts> Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\deepdesk\AppData\Local\Programs\Python\Python39\lib\multiprocessing\spawn.py", line 126, in _main
+    self = reduction.pickle.load(from_parent)
+EOFError: Ran out of input
